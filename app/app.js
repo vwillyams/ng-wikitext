@@ -9,7 +9,7 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
   //
   // default redirect for any unmatched URL
   // TODO: avoid this as much as possible
-  $urlRouterProvider.otherwise("/text/testbed");
+  $urlRouterProvider.otherwise("/text/hello-world");
   //
   // Now set up the states
   $stateProvider

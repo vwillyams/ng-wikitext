@@ -24,13 +24,13 @@
   <div ui-view></div>
 
   <div>
-    <a ui-sref="textDisplay({filename:'testbed'})">Display Text 1</a>
+    <a ui-sref="textDisplay({filename:'hello-world'})">Front page</a>
     |
-    <a ui-sref="textDisplay({filename:'testbed2'})">Display Text 2</a>
+    <a ui-sref="textDisplay({filename:'multi-line'})">Simple text that needs to be parsed</a>
     |
-    <a ui-sref="textDisplay({filename:'multi-line'})">Simple text with markdown</a>
+    <a ui-sref="textDisplay({filename:'full-markdown'})">Complex text that needs markdown support</a>
     |
-    <a ui-sref="textDisplay({filename:'toast-sandwich'})">Ultra complex markdown text</a>
+    <a ui-sref="textDisplay({filename:'toast-sandwich'})">Ultra complex non-markdown text that absolutely won't work yet</a>
   </div>
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
