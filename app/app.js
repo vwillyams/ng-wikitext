@@ -3,6 +3,7 @@
 // Declare app level module which depends on views, and components
 var myApp = angular.module('myApp', [
   'ui.router',
+  'text.router'
 ]);
 myApp.config(function($stateProvider, $urlRouterProvider) {
   //
@@ -32,5 +33,10 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
         controller: function($scope) {
           $scope.things = ["A", "Set", "Of", "Things"];
         }
-      });
+      })
+    .state('textDisplay', {
+      url: "/text",
+      templateUrl: "partials/wiki.base.html",
+      controller: 'textRouterCtrl'
+    });
 });
