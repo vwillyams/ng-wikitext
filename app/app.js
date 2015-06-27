@@ -7,7 +7,8 @@ var myApp = angular.module('myApp', [
 ]);
 myApp.config(function($stateProvider, $urlRouterProvider) {
   //
-  // For any unmatched url, redirect to /state1
+  // default redirect for any unmatched URL
+  // TODO: avoid this as much as possible
   $urlRouterProvider.otherwise("/text/testbed");
   //
   // Now set up the states
