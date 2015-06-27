@@ -11,6 +11,9 @@
     "angular-loader": "~1.4.0",
     "angular-mocks": "~1.4.0",
     "html5-boilerplate": "~5.2.0",
-    "angular-ui-router": "~0.2.15"
+    "angular-ui-router": "~0.2.15",
+    "showdown": "~0.3.4",
+    "angular-sanitize": "~1.4.1",
+    "angular-markdown-directive": "~0.3.1"
   }
 }
