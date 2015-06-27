@@ -3,9 +3,9 @@
  */
 'use strict';
 
-angular.module('text.router', ['ui.router', 'file.reader']).controller('textRouterCtrl', function ($scope, fileReader, $http) {
+angular.module('text.router', ['ui.router']).controller('textRouterCtrl', function ($scope, $http, $stateParams) {
 
-    $http.get("wiki-text/testbed.txt").success(function(data){
+    $http.get('wiki-text/' + $stateParams.filename + '.txt').success(function(data){
       $scope.text = data;
     });
 });
