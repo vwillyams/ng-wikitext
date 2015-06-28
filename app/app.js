@@ -9,15 +9,20 @@ myApp.config(function($stateProvider, $urlRouterProvider, markdownConverterProvi
   //
   // default redirect for any unmatched URL
   // TODO: avoid this as much as possible
-  $urlRouterProvider.otherwise("/text/hello-world");
+  $urlRouterProvider.otherwise('/text/hello-world');
   //
   // Now set up the states
   $stateProvider
     .state('textDisplay', {
-      url: "/text/:filename",
-      templateUrl: "partials/wiki.base.html",
+      url: '/text/:filename',
+      templateUrl: 'partials/wiki.base.html',
       controller: 'textRouterCtrl'
     });
 
-  //markdownConverterProvider.config({ extensions: []});
+  window.Showdown.extensions.intlinkConfig({
+    pathPrefix: '#text/',
+    pathSuffix: ''
+  })
+
+  markdownConverterProvider.config({ extensions: ['intlink']});
 });
