@@ -8,4 +8,5 @@ angular.module('text.router', ['ui.router', 'btford.markdown']).controller('text
     $http.get('wiki-text/' + $stateParams.filename + '.txt').success(function(data){
       $scope.text = data;
     });
+
 });

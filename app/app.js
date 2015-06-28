@@ -5,7 +5,7 @@ var myApp = angular.module('myApp', [
   'ui.router',
   'text.router'
 ]);
-myApp.config(function($stateProvider, $urlRouterProvider) {
+myApp.config(function($stateProvider, $urlRouterProvider, markdownConverterProvider) {
   //
   // default redirect for any unmatched URL
   // TODO: avoid this as much as possible
@@ -18,4 +18,6 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: "partials/wiki.base.html",
       controller: 'textRouterCtrl'
     });
+
+  //markdownConverterProvider.config({ extensions: []});
 });
