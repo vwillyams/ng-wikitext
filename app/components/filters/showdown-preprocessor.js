@@ -1,30 +1,32 @@
-angular.module('wikiFiltering', []).filter('sd-preprocess', function() {
+angular.module('wikiFiltering', []).filter('preprocess', function() {
   return function(input) {
-    var footnoteArray = {};
-    var idx = 1;
+    console.log("triggered");
+    if(input && input.replace) {
+      var footnoteArray = {};
+      var idx = 1;
 
-    var results = input.replaceAll(/\[(\^)]\(([^\r\n#\/"\)]*)\)/, function(cite, linkName){
-      var thisIdx;
-      if(!footnoteArray[linkText]){
-        footnoteArray[linkText] = idx;
-        thisIdx = idx;
-        idx += 1;
-      } else {
-        thisIdx = footnoteArray[linkText];
-      }
-      return '[<sup>' + thisIdx + '</sup>](##cite' + thisIdx + ')';
-    });
-    results = input.replaceAll(/<references>/, function(){
+      input = input.replace(/\[(\^)]\(([^\r\n#\/"\)]*)\)/g, function (match, cite, linkName) {
+        var thisIdx;
+        if (!footnoteArray[linkName]) {
+          footnoteArray[linkName] = idx;
+          thisIdx = idx;
+          idx += 1;
+        } else {
+          thisIdx = footnoteArray[linkName];
+        }
+        return '[<sup>' + thisIdx + '</sup>](##cite' + thisIdx + ')';
+      });
+      input = input.replace(/<references>/, function () {
         var rtn = [];
         // TODO and here's where the obvious lazy array problem starts to bite...
-        for(var i = 0; i < Object.keys(footnoteArray).length; i++){
+        for (var i = 0; i < Object.keys(footnoteArray).length; i++) {
           var linkText = Object.keys(footnoteArray)[i];
-          rtn += "<a id=\"cite"+ footnoteArray[linkText] + "\">" + footnoteArray[linkText] + "</a>: [" + linkText + "][" + linkText + "] \n\n";
+          rtn += "<a id=\"cite" + footnoteArray[linkText] + "\">" + footnoteArray[linkText] + "</a>: [" + linkText + "][" + linkText + "] \n\n";
         }
-        console.log(rtn);
         return rtn;
-    });
-    return results;
+      });
+    }
+    return input;
   };
 });
 
