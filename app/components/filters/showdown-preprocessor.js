@@ -1,4 +1,4 @@
-angular.module('wikiFiltering', []).filter('preprocess', function() {
+angular.module('wikiFiltering', []).filter('preprocess', function($anchorScroll) {
   return function(input) {
     console.log("triggered");
     if(input && input.replace) {
