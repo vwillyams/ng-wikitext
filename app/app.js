@@ -24,5 +24,5 @@ myApp.config(function($stateProvider, $urlRouterProvider, markdownConverterProvi
     pathSuffix: ''
   })
 
-  markdownConverterProvider.config({ extensions: ['intlink']});
+  markdownConverterProvider.config({ extensions: ['intlink', 'footnotify']});
 });
