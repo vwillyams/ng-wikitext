@@ -3,7 +3,7 @@
  */
 'use strict';
 
-angular.module('text.router', ['ui.router', 'btford.markdown', 'wikiFiltering']).controller('textRouterCtrl', function ($scope, $http, $stateParams, $filter, $anchorScroll) {
+angular.module('text.router', ['ui.router', 'wikiFiltering']).controller('textRouterCtrl', function ($scope, $http, $stateParams, $filter, $anchorScroll) {
     $scope.$watch('text', function(){
       // TODO oh god, this looks horrifying. replace it with something more sensible.
       $scope.text = $filter('preprocess')($scope.text, '/text/toast-sandwich');

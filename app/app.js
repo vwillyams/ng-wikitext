@@ -3,9 +3,10 @@
 // Declare app level module which depends on views, and components
 var myApp = angular.module('myApp', [
   'ui.router',
-  'text.router'
+  'text.router',
+  'hc.marked'
 ]);
-myApp.config(function($stateProvider, $urlRouterProvider, markdownConverterProvider) {
+myApp.config(function($stateProvider, $urlRouterProvider) {
   //
   // default redirect for any unmatched URL
   // TODO: avoid this as much as possible
@@ -19,10 +20,4 @@ myApp.config(function($stateProvider, $urlRouterProvider, markdownConverterProvi
       controller: 'textRouterCtrl'
     });
 
-  window.Showdown.extensions.intlinkConfig({
-    pathPrefix: '#text/',
-    pathSuffix: ''
-  })
-
-  markdownConverterProvider.config({ extensions: ['intlink']});
 });

@@ -1,6 +1,5 @@
 angular.module('wikiFiltering', []).filter('preprocess', function($anchorScroll) {
   return function(input) {
-    console.log("triggered");
     if(input && input.replace) {
       var footnoteArray = {};
       var idx = 1;
